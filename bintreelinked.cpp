@@ -22,10 +22,25 @@ void LinkedBST::add(int data){
    newNode->left=Null;
    newNode->right=NULL;
 
+   if(root == Null){
+        this->root = newNode;
+   }
+   else{
+        this->add(root, newNode);
+   }
+
 }
 
 void LinkedBST::add(Node *subTree, Node *newNode){
+    if(data < subTree->data){
+        if(subtree->left==NULL){
+            subtree->left = newNode;
+        }
+        else{
+            add(subtree->left,newNode);
 
+        }
+    }
 
 }
 
