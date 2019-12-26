@@ -1,7 +1,13 @@
 //Binary tree
 
-class BinaryTree{
-	public:
-		virtual void _func()=0;
+#ifndef BinaryTree_h
+#define BinaryTree_h
+
+class BinarySearchTree {
+    public:
+        virtual void preordertraversal()=0;
+        virtual void add(int data)=0;
+        virtual bool searchh(int data)=0;
 };
 
+#endif
