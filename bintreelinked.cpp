@@ -42,6 +42,11 @@ void LinkedBST::add(Node *subTree, Node *newNode){
         }
     }
 
+    else{
+
+
+    }
+
 }
 
 
