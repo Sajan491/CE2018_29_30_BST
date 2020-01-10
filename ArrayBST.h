@@ -4,10 +4,13 @@
 
 class ArrayBST : public BinarySearchTree{
 	private:
-		int elements[MAX_SIZE];
+		int element[MAX_SIZE];
 	public:
 		ArrayBST();
 		void preordertraversal();
+		void preordertraversal(int index);
 		void add(int data);
 		bool search(int data);
+		int get_left_child(int index);
+		int get_right_child(int index);
 };
