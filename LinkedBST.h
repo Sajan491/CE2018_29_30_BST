@@ -5,27 +5,32 @@
 
 class node
 {
+
 public:
+friend class LinkedBST;
     int data;
     node* left ;
     node* right;
     node();
     node(int);
     ~node();
+
 };
 
 
 class LinkedBST:public BinarySearchTree{
-    
+
     public:
     node root;
     LinkedBST();
     ~LinkedBST();
-    void preorderTraversal();
-    void preorderTraversal(node *root);
+    void preordertraversal();
+    void preordertraversal(node *root);
     void add(int data);
     void add(node *root,int data);
     bool search(int data);
     bool search(node *root,int targetKey);
+    int maxx();
+    int maxx(node *root);
 };
 #endif
