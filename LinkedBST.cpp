@@ -54,6 +54,31 @@ if (root->data==0){
     }
 }
 
+void LinkedBST::deleteitem(node *root,int data){
+    if (!root){
+        return;}
+    else if (data<root->data){
+        return deleteitem(root->left,int data)
+    }
+    else if(data>root->data){
+        return deleteitem(root->left,int data)
+    }
+    else{
+        if (root->left==NULL){
+            root->right = root;
+        }
+        else if (root->right==NULL){
+            root->left = root;
+        }
+        else{
+            pass;
+        }
+
+
+    }
+
+}
+
 bool LinkedBST::search(node *root,int targetKey){
     if(root->data==0){
         cout<<"It is an empty tree"<<endl;
@@ -97,6 +122,8 @@ void LinkedBST::preordertraversal(node* root) {
 
     preordertraversal(root->right);
 }
+
+
 
 int LinkedBST::maxx(node *root){
     if(root->data == 0){

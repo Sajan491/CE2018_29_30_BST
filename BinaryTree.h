@@ -9,6 +9,8 @@ class BinarySearchTree{
 		virtual bool search(int data)=0;
 
         virtual int maxx() = 0;
+        virtual void inordertraversal() = 0;
+        virtual void deleteitem(int data) = 0;
 
 };
 #endif
