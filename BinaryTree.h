@@ -8,7 +8,7 @@ class BinarySearchTree{
 		virtual void add(int data)=0;
 		virtual bool search(int data)=0;
 
-        virtual int maxx() = 0;
-
+		virtual int maxx() = 0;
+		virtual int minimum() = 0;
 };
 #endif

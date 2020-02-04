@@ -1,38 +1,49 @@
-#include "ArrayBST.h"
-#include <iostream>
+#include "BST_array.h"
+#include<iostream>
+using namespace std;
 
-ArrayBST::ArrayBST(){
+BST_array::BST_array(){
 	for(int i=0;i<MAX_SIZE;i++){
 		this->element[i]=0;
 	}
+}
+
+BST_array::~BST_array(){
 
 }
 
-int ArrayBST::get_left_child(int index){
-    if(element[index]!=0 && (2*index)<=MAX_SIZE){
+void BST_array :: preordertraversal(){
+    int i = 1;
+    cout<<element[i]<<endl;
+    preordertraversal(get_left_child(i));
+    preordertraversal(get_right_child(i));
+}
+
+void BST_array :: preordertraversal(int index){
+    if(index != -1){
+        cout<<element[index]<<endl;
+    }
+    preordertraversal(get_left_child(index));
+    preordertraversal(get_right_child(index));
+}
+
+int BST_array :: get_left_child(int index){
+    cout<<"left_child function "<<index<<endl;
+    if(element[2*index]!=0){
         return 2*index;
     }
-    return -1;
+    else return -1;
 }
 
-int ArrayBST::get_right_child(int index){
-    if(element[index]!=0 && (2*index+1)<=MAX_SIZE){
-        return 2*index+1;
+int BST_array :: get_right_child(int index){
+    cout<<"rigt_child function"<<endl;
+    if(element[2*index + 1]!=0){
+        return 2*index + 1;
     }
-    return -1;
+    else return -1;
 }
 
-void ArrayBST::preordertraversal(int index){
-	if(index>0 && element[index]!=0)
-    {
-        std::cout<<element[index]<<std::endl;
-        preordertraversal(get_left_child(index));
-        preordertraversal(get_right_child(index));
-    }
-}
-
-
-void ArrayBST::add(int data){
+void BST_array::add(int data){
 	if(this->element[0]==0){
 		element[1]=data;
 	}
@@ -53,7 +64,7 @@ void ArrayBST::add(int data){
 	this->element[0]=this->element[0]+1;
 }
 
-bool ArrayBST::search(int data){
+bool BST_array::search_value(int data){
 	int current_index=1;
 	while(current_index<=MAX_SIZE){
 	    if(element[current_index]==data){
@@ -70,14 +81,23 @@ bool ArrayBST::search(int data){
 	return false;
 }
 
-
-int main(){
-	ArrayBST a;
-	a.add(5);
-	a.add(7);
-	a.add(10);
-	a.add(6);
-	a.search(7);
-	a.preordertraversal(5);
+int BST_array::minimum(){
+	cout<<"I";
 	return 0;
 }
+
+
+int main(){
+    BST_array a;
+    a.add(40);
+    a.add(5);
+    a.add(71);
+    a.add(17);
+    if(a.search_value(17)){
+        cout<<"The value 17 is in the tree."<<endl;
+    }
+    a.preordertraversal();
+	return 0;
+}
+
+
