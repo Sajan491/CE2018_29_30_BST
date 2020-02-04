@@ -14,21 +14,22 @@ BST_array::~BST_array(){
 
 void BST_array :: preordertraversal(){
     int i = 1;
-    cout<<element[i]<<endl;
+    cout<<element[i];
     preordertraversal(get_left_child(i));
     preordertraversal(get_right_child(i));
+	cout<<endl;
 }
 
 void BST_array :: preordertraversal(int index){
     if(index != -1){
-        cout<<element[index]<<endl;
+        cout<<", "<<element[index];
+	preordertraversal(get_left_child(index));
+ 	preordertraversal(get_right_child(index));
     }
-    preordertraversal(get_left_child(index));
-    preordertraversal(get_right_child(index));
+    
 }
 
 int BST_array :: get_left_child(int index){
-    cout<<"left_child function "<<index<<endl;
     if(element[2*index]!=0){
         return 2*index;
     }
@@ -36,7 +37,6 @@ int BST_array :: get_left_child(int index){
 }
 
 int BST_array :: get_right_child(int index){
-    cout<<"rigt_child function"<<endl;
     if(element[2*index + 1]!=0){
         return 2*index + 1;
     }
@@ -92,7 +92,7 @@ int main(){
     a.add(40);
     a.add(5);
     a.add(71);
-    a.add(17);
+    a.add(17);	
     if(a.search_value(17)){
         cout<<"The value 17 is in the tree."<<endl;
     }
