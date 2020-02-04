@@ -71,7 +71,13 @@ void LinkedBST::deleteitem(node *root,int data){
             root->left = root;
         }
         else{
-            pass;
+            int largest;
+            node *ntd =new node();
+            ntd = root;
+            largest = maxx(node *root);
+            ntd->data = largest;
+            return deleteitem(ntd->left, largest )
+
         }
 
 
