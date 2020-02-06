@@ -23,21 +23,21 @@ void BST_array :: preordertraversal(){
 void BST_array :: preordertraversal(int index){
     if(index != -1){
         cout<<", "<<element[index];
-	preordertraversal(get_left_child(index));
- 	preordertraversal(get_right_child(index));
+		preordertraversal(get_left_child(index));
+ 		preordertraversal(get_right_child(index));
     }
     
 }
 
 int BST_array :: get_left_child(int index){
-    if(element[2*index]!=0){
+    if(element[2*index]!=0 && 2*index<MAX_SIZE){
         return 2*index;
     }
     else return -1;
 }
 
 int BST_array :: get_right_child(int index){
-    if(element[2*index + 1]!=0){
+    if(element[2*index + 1]!=0 && 2*index+1<MAX_SIZE){
         return 2*index + 1;
     }
     else return -1;
@@ -82,21 +82,33 @@ bool BST_array::search_value(int data){
 }
 
 int BST_array::minimum(){
-	cout<<"I";
-	return 0;
+	int temp;
+	for(int i = 1; i<MAX_SIZE; ){
+		if(this->element[2*i]!=0){
+			temp = this->element[2*i];
+		i = i * 2;
+		}
+		else break;
+	}
+	return temp;
 }
 
 
 int main(){
-    BST_array a;
-    a.add(40);
-    a.add(5);
-    a.add(71);
-    a.add(17);	
-    if(a.search_value(17)){
-        cout<<"The value 17 is in the tree."<<endl;
-    }
-    a.preordertraversal();
+    BST_array a;	
+	a.add(12);
+	a.add(10);
+	a.add(15);
+	a.add(11);
+	a.add(9);
+	a.add(22);
+	a.add(32);
+	if(a.search_value(9)){
+		cout<<"9 is in the BST."<<endl;
+	}
+	cout<<"The pre-order traversal of the tree is ";
+	a.preordertraversal();
+	cout<<"The minimum value in the tree is "<<a.minimum();
 	return 0;
 }
 

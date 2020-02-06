@@ -14,6 +14,7 @@ class BST_array : public BinarySearchTree {
         void add(int data);
         bool search_value(int data);
         int minimum();
+        int maxx(){}
         int get_left_child(int index);
         int get_right_child(int index);
 };
