@@ -11,10 +11,12 @@ class BST_array : public BinarySearchTree {
         ~BST_array();
         void preordertraversal();
         void preordertraversal(int index);
+        void inordertraversal();
         void add(int data);
-        bool search_value(int data);
+        void deleteitem(int data);
+        bool search(int data);
         int minimum();
-        int maxx(){}
+        int maximum();
         int get_left_child(int index);
         int get_right_child(int index);
 };

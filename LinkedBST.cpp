@@ -27,7 +27,7 @@ void LinkedBST::preordertraversal(){}
 
 bool LinkedBST::search(int data){}
 
-int LinkedBST::maxx(){}
+int LinkedBST::maximum(){}
 
 void LinkedBST::add(node *root,int data){
 if (root->data==0){
@@ -131,7 +131,7 @@ void LinkedBST::preordertraversal(node* root) {
 
 
 
-int LinkedBST::maxx(node *root){
+int LinkedBST::maximum(node *root){
     if(root->data == 0){
         cout<<"it is a null tree"<<endl;
     }
@@ -160,7 +160,7 @@ int main(){
 	cout<<"Preorder Traversal of the tree is"<<endl;
 	tree1.preordertraversal(&tree1.root);
 	cout<<endl;
-    a = tree1.maxx(&tree1.root);
+    a = tree1.maximum(&tree1.root);
     cout<<"the max term in the tree is "<<a<<endl;
 
 	int number;

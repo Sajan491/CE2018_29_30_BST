@@ -37,7 +37,7 @@ class LinkedBST:public BinarySearchTree{
 
     bool search(int data);
     bool search(node *root,int targetKey);
-    int maxx();
-    int maxx(node *root);
+    int maximum();
+    int maximum(node *root);
 };
 #endif
