@@ -24,10 +24,13 @@ void LinkedBST::add(int data){
 }
 
 void LinkedBST::preordertraversal(){}
+void LinkedBST::inordertraversal(){}
 
 bool LinkedBST::search(int data){}
 
 int LinkedBST::maximum(){}
+
+int LinkedBST::minimum(){}
 
 void LinkedBST::add(node *root,int data){
 if (root->data==0){
@@ -54,36 +57,6 @@ if (root->data==0){
     }
 }
 
-void LinkedBST::deleteitem(node *root,int data){
-    if (!root){
-        return;}
-    else if (data<root->data){
-        return deleteitem(root->left,int data)
-    }
-    else if(data>root->data){
-        return deleteitem(root->left,int data)
-    }
-    else{
-        if (root->left==NULL){
-            root->right = root;
-        }
-        else if (root->right==NULL){
-            root->left = root;
-        }
-        else{
-            int largest;
-            node *ntd =new node();
-            ntd = root;
-            largest = maxx(node *root);
-            ntd->data = largest;
-            return deleteitem(ntd->left, largest )
-
-        }
-
-
-    }
-
-}
 
 bool LinkedBST::search(node *root,int targetKey){
     if(root->data==0){
@@ -129,6 +102,19 @@ void LinkedBST::preordertraversal(node* root) {
     preordertraversal(root->right);
 }
 
+void LinkedBST::inordertraversal(node* root) {
+    if (!root)
+    return;
+
+
+    inordertraversal(root->left);
+
+    cout << root->data << "\t";
+
+
+    inordertraversal(root->right);
+}
+
 
 
 int LinkedBST::maximum(node *root){
@@ -139,16 +125,31 @@ int LinkedBST::maximum(node *root){
         return root->data;
     }
     else{
-        maxx(root->right);
+        maximum(root->right);
+    }
+
+
+}
+
+int LinkedBST::minimum(node *root){
+    if(root->data == 0){
+        cout<<"it is a null tree"<<endl;
+    }
+    else if(root->left == nullptr){
+        return root->data;
+    }
+    else{
+        minimum(root->left);
     }
 
 
 }
 
 
+
 int main(){
 	LinkedBST tree1;
-    int a;
+    int a,b;
 	tree1.add(&tree1.root,6);
 	tree1.add(&tree1.root,4);
 	tree1.add(&tree1.root,7);
@@ -162,6 +163,10 @@ int main(){
 	cout<<endl;
     a = tree1.maximum(&tree1.root);
     cout<<"the max term in the tree is "<<a<<endl;
+    
+    b = tree1.minimum(&tree1.root);
+    cout<<"the min term in the tree is "<<b<<endl;
+
 
 	int number;
 	char character;

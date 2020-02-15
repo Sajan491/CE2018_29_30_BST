@@ -10,7 +10,6 @@ class BinarySearchTree{
 
         virtual void preordertraversal()=0;
         virtual void inordertraversal() = 0;
-        virtual void deleteitem(int data) = 0;
 
 		virtual int maximum() = 0;
 		virtual int minimum() = 0;
