@@ -5,6 +5,7 @@
 class BinarySearchTree{
 	public:
 		virtual void add(int data)=0;
+		virtual void deleteitem(int data)=0;
 
 		virtual bool search(int data)=0;
 

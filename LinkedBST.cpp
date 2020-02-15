@@ -23,6 +23,9 @@ LinkedBST::~LinkedBST(){}
 void LinkedBST::add(int data){
 }
 
+void LinkedBST::deleteitem(int data){
+}
+
 void LinkedBST::preordertraversal(){}
 void LinkedBST::inordertraversal(){}
 
@@ -57,6 +60,41 @@ if (root->data==0){
     }
 }
 
+
+void LinkedBST::deleteitem(node *root, int data) {
+	if(root == NULL) return; 
+	else if(data < root->data){
+	    deleteitem(root->left,data);
+	    
+	}
+	else if (data > root->data){
+	    deleteitem(root->right,data);
+	    
+	}
+	else {
+		if(root->left == NULL && root->right == NULL) { 
+			delete root;
+			root = NULL;
+		}
+		else if(root->left == NULL) {
+			node *temp = root;
+			root = root->right;
+			delete temp;
+		}
+		else if(root->right == NULL) {
+			node *temp = root;
+			root = root->left;
+			delete temp;
+		}
+		else { 
+			node *temp;
+			temp->data = minimum(root->right);
+			root->data = temp->data;
+			deleteitem(root->right,temp->data);
+		}
+	}
+
+}
 
 bool LinkedBST::search(node *root,int targetKey){
     if(root->data==0){
@@ -149,7 +187,7 @@ int LinkedBST::minimum(node *root){
 
 int main(){
 	LinkedBST tree1;
-    int a,b;
+    int a,b,c;
 	tree1.add(&tree1.root,6);
 	tree1.add(&tree1.root,4);
 	tree1.add(&tree1.root,7);
@@ -161,13 +199,25 @@ int main(){
 	cout<<"Preorder Traversal of the tree is"<<endl;
 	tree1.preordertraversal(&tree1.root);
 	cout<<endl;
+	
+	
+
+	cout<<"Inorder Traversal of the tree is"<<endl;
+	tree1.inordertraversal(&tree1.root);
+	cout<<endl;
+	
     a = tree1.maximum(&tree1.root);
     cout<<"the max term in the tree is "<<a<<endl;
     
     b = tree1.minimum(&tree1.root);
     cout<<"the min term in the tree is "<<b<<endl;
 
-
+    tree1.deleteitem(&tree1.root,7);
+    tree1.deleteitem(&tree1.root,5);
+    cout<<"Inorder Traversal of the tree is"<<endl;
+	tree1.inordertraversal(&tree1.root);
+	cout<<endl;
+    
 	int number;
 	char character;
 	search:

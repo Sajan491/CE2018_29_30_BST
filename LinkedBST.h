@@ -32,6 +32,9 @@ class LinkedBST:public BinarySearchTree{
 
     void add(int data);
     void add(node *root,int data);
+    
+    void deleteitem(int data);
+    void deleteitem(node *root,int data);
 
   
     bool search(int data);
