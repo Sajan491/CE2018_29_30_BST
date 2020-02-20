@@ -31,7 +31,21 @@ void BST_array :: preordertraversal(int index){
 }
 
 void BST_array::inordertraversal(){
+	int i = 1;
+	cout<<"The in-order tranversal of the tree is ";
+	inordertraversal(get_left_child(i));
+	cout<<element[i]<<", ";
+	inordertraversal(get_right_child(i));
+}
 
+void BST_array :: inordertraversal(int index){
+    if(index != -1){
+        //cout<<", ";
+		inordertraversal(get_left_child(index));
+		cout<<element[index]<<", ";
+ 		inordertraversal(get_right_child(index));
+    }
+    
 }
 
 int BST_array :: get_left_child(int index){
@@ -150,7 +164,8 @@ int BST_array::maximum(){
 
 
 int main(){
-    BST_array a;	
+	BST_array a;
+	a.add(5);	
 	a.add(12);
 	a.add(10);
 	a.add(15);
@@ -168,6 +183,8 @@ int main(){
 	a.deleteitem(11);
 	a.preordertraversal();
 	a.deleteitem(23);
+	a.inordertraversal();
+	cout<<endl;
 	return 0;
 }
 

@@ -12,6 +12,7 @@ class BST_array : public BinarySearchTree {
         void preordertraversal();
         void preordertraversal(int index);
         void inordertraversal();
+        void inordertraversal(int index);
         void add(int data);
         void deleteitem(int data);
         bool search(int data);
