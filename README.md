@@ -1,4 +1,3 @@
-# Sajan-Ishar
-Lab3
-Ishar Maharzan => Array Implementation in BST
-Sajan Mahat => Linked List Imlementation in BST
+# LAB 3 & LAB 4
+Ishar Maharjan (Roll no: 29) => Array Implementation in BST
+Sajan Mahat (Roll no: 30) => Linked List Imlementation in BST
